@@ -1,0 +1,30 @@
+.e-weibo .topBarWrap {
+  top: 36px;
+}
+
+.e-weibo .module-topbar.home-topbar {
+  position: fixed;
+  padding-left: 70px;
+  width: calc(100% - 70px);
+}
+
+.e-weibo .module-topbar,
+.e-weibo .module-topbar .iconf,
+.e-weibo .module-topbar.home-topbar>.title {
+  height: 36px;
+  line-height: 36px;
+}
+
+.e-weibo .module-topbar .drop-title {
+  margin: 3px -12px 0 12px;
+}
+
+.e-weibo .contWrap {
+  padding-top: 89px;
+}
+
+/* hide weibo logo in title */
+.e-weibo .module-topbar.home-topbar>.title {
+  background-image: none;
+  padding-left: 10px;
+}

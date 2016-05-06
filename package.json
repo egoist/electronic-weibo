@@ -1,0 +1,31 @@
+{
+  "name": "electronic-weibo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ui": "vbuild -c -d",
+    "ui:build": "vbuild -c && cp index.html dist/ && cp index.js dist/ && cp package.json dist/",
+    "app": "NODE_ENV=development electron .",
+    "all": "concurrently --kill-others \"npm run ui\" \"npm run app\""
+  },
+  "author": "",
+  "license": "ISC",
+  "tooling": {
+    "cssnext": true,
+    "port": 4038,
+    "livereload": true,
+    "electron": true,
+    "silent": true,
+    "disableHtml": true,
+    "entry": "./ui/index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "electron-prebuilt": "^0.37.7"
+  },
+  "dependencies": {
+    "electron-debug": "^0.7.0"
+  }
+}
