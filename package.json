@@ -1,31 +1,22 @@
 {
   "name": "electronic-weibo",
+  "productName": "电子微博",
   "version": "1.0.0",
-  "description": "",
+  "description": "微博桌面版",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ui": "vbuild -c -d",
-    "ui:build": "vbuild -c && cp index.html dist/ && cp index.js dist/ && cp package.json dist/",
     "app": "NODE_ENV=development electron .",
-    "all": "concurrently --kill-others \"npm run ui\" \"npm run app\""
+    "build:osx": "electron-packager . --overwrite --asar --out dist --prune --platform=darwin --arch=x64 --versio=0.37.8  --ignore='^/media/(?!Icon.icns$).*' --icon=media/weibo.icns  --app-version=$npm_package_version"
   },
   "author": "",
   "license": "ISC",
-  "tooling": {
-    "cssnext": true,
-    "port": 4038,
-    "livereload": true,
-    "electron": true,
-    "silent": true,
-    "disableHtml": true,
-    "entry": "./ui/index.js"
-  },
   "devDependencies": {
-    "concurrently": "^2.0.0",
+    "electron-packager": "^7.0.1",
     "electron-prebuilt": "^0.37.7"
   },
   "dependencies": {
-    "electron-debug": "^0.7.0"
+    "electron-debug": "^0.7.0",
+    "electron-dl": "^0.2.0"
   }
 }

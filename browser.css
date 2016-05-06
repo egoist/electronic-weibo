@@ -10,13 +10,27 @@
 
 .e-weibo .module-topbar,
 .e-weibo .module-topbar .iconf,
-.e-weibo .module-topbar.home-topbar>.title {
+.e-weibo .module-topbar.home-topbar>.title,
+.e-weibo  .module-topbar .title-group .title:only-child,
+.e-weibo .module-topbar .txt-link {
+  height: 36px;
+  line-height: 36px;
+}
+
+.e-weibo .module-topbar a.fl {
+  position: relative;
+  left: 70px;
   height: 36px;
   line-height: 36px;
 }
 
 .e-weibo .module-topbar .drop-title {
   margin: 3px -12px 0 12px;
+}
+
+.e-weibo .module-topbar .title-group .title {
+  font-size: .75rem;
+  line-height: 22px;
 }
 
 .e-weibo .contWrap {
@@ -27,4 +41,16 @@
 .e-weibo .module-topbar.home-topbar>.title {
   background-image: none;
   padding-left: 10px;
+}
+
+.e-weibo .sub-header a.left,
+.e-weibo .nav .btn {
+  position: relative;
+  left: 70px;
+}
+
+.e-weibo a.close {
+  top: 10px;
+  left: auto;
+  right: 10px;
 }

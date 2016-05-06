@@ -4,17 +4,32 @@ const fs = require('fs')
 const electron = require('electron')
 const store = require('./store')
 require('electron-debug')()
+require('electron-dl')()
 
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
 const isDev = process.env.NODE_ENV === 'development'
 
+const isAlreadyRunning = app.makeSingleInstance(() => {
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore()
+    }
+
+    mainWindow.show()
+  }
+})
+
+if (isAlreadyRunning) {
+  app.quit();
+}
+
 let mainWindow
 let isQuitting = false
 
 function createMainWindow () {
-  const lastWindowState = store.get('lastWindowState') || {width: 460, height: 720}
+  const lastWindowState = store.get('lastWindowState') || {width: 430, height: 720}
 
   const win = new BrowserWindow({
     width: lastWindowState.width,
@@ -31,24 +46,27 @@ function createMainWindow () {
     }
   })
 
+  if (process.platform === 'darwin') {
+    win.setSheetOffset(40)
+  }
+
   win.loadURL('http://m.weibo.cn')
 
   if (isDev) {
     win.webContents.openDevTools()
   }
 
-  win.on('closed', e => {
+  win.on('close', e => {
     if (!isQuitting) {
-      e.preventDefault()
+      e.preventDefault();
 
       if (process.platform === 'darwin') {
-        app.hide()
+        app.hide();
       } else {
-        win.hide()
+        win.hide();
       }
     }
   })
-
   return win
 }
 
@@ -68,10 +86,9 @@ app.on('ready', () => {
   })
 
   page.on('will-navigate', (e, url) => {
-    e.preventDefault()
     const externalPrefix = 'http://weibo.cn/sinaurl?u='
     if (url.indexOf(externalPrefix) !== -1) {
-      console.log(url.replace(externalPrefix, ''))
+      e.preventDefault()
       electron.shell.openExternal(decodeURIComponent(url.replace(externalPrefix, '')))
     }
   })
