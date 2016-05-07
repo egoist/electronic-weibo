@@ -6,7 +6,7 @@
 - [ ] 前进/后退快捷键
 - [ ] 图片浏览快捷键
 
-<img src="http://ww4.sinaimg.cn/large/a15b4afegw1f3m2re1e0ij212616c4qq" width="300"/>
+<img src="http://ww4.sinaimg.cn/large/a15b4afegw1f3n05xacpfj21e616c7ki" width="400"/>
 
 ## Build
 
