@@ -3,6 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const electron = require('electron')
 const store = require('./store')
+const appMenu = require('./menu')
 require('electron-debug')()
 require('electron-dl')()
 
@@ -77,6 +78,7 @@ function regShortcuts() {
 }
 
 app.on('ready', () => {
+  electron.Menu.setApplicationMenu(appMenu)
   regShortcuts()
   mainWindow = createMainWindow()
 
