@@ -265,10 +265,6 @@ const linuxTpl = [
 		]
 	},
 	{
-		label: '视图',
-		submenu: viewSubmenu
-	},
-	{
 		label: '帮助',
 		role: 'help'
 	}
