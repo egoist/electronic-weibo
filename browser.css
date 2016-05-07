@@ -54,3 +54,15 @@
   left: auto;
   right: 10px;
 }
+
+.e-weibo .home-sub-nav {
+  box-shadow: none;
+  background-color: white;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.e-weibo .line-around,
+.e-weibo .module,
+.e-weibo .card {
+  box-shadow: none;
+}
