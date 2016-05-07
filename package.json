@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "app": "NODE_ENV=development electron .",
-    "build:osx": "electron-packager . --overwrite --asar --out dist --prune --platform=darwin --arch=x64 --versio=0.37.8  --ignore='^/media/(?!Icon.icns$).*' --icon=media/weibo.icns  --app-version=$npm_package_version"
+    "build:osx": "electron-packager . --overwrite --asar --out dist --prune --platform=darwin --arch=x64 --ignore='^/media/(?!Icon.icns$).*' --ignore=src --icon=media/weibo.icns  --app-version=$npm_package_version"
   },
   "author": "",
   "license": "ISC",

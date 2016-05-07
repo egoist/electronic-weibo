@@ -6,7 +6,7 @@ const store = require('./store')
 require('electron-debug')()
 require('electron-dl')()
 
-const app = electron.app
+const {app, globalShortcut} = electron
 const BrowserWindow = electron.BrowserWindow
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -70,7 +70,13 @@ function createMainWindow () {
   return win
 }
 
+function regShortcuts() {
+  // hide windows
+  globalShortcut.register('CommandOrControl+W', () => app.hide())
+}
+
 app.on('ready', () => {
+  regShortcuts()
   mainWindow = createMainWindow()
 
   const page = mainWindow.webContents
@@ -104,4 +110,8 @@ app.on('before-quit', () => {
   if (!mainWindow.isFullScreen()) {
     store.set('lastWindowState', mainWindow.getBounds())
   }
+})
+
+app.on('will-quit', () => {
+  globalShortcut.unregisterAll()
 })
