@@ -71,8 +71,9 @@ function createMainWindow () {
 }
 
 function regShortcuts() {
-  // hide windows
-  globalShortcut.register('CommandOrControl+W', () => app.hide())
+  // show window
+  // TODO: allow custom keys
+  globalShortcut.register('CommandOrControl+Shift+O', () => app.focus())
 }
 
 app.on('ready', () => {
