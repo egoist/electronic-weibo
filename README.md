@@ -8,6 +8,11 @@
 
 <img src="http://ww4.sinaimg.cn/large/a15b4afegw1f3n05xacpfj21e616c7ki" width="400"/>
 
+## 快捷键
+
+<kbd>Command/Control</kbd> <kbd>Shift</kbd> <kbd>O</kbd> : 全局快捷键，显示/隐藏电子微博<br>
+<kbd>Shift</kbd> <kbd>W</kbd> : 发布新微博
+
 ## Build
 
 ```bash

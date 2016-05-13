@@ -74,13 +74,17 @@ function createMainWindow () {
 function regShortcuts() {
   // show window
   // TODO: allow custom keys
-  globalShortcut.register('CommandOrControl+Shift+O', () => app.focus())
+  globalShortcut.register('CommandOrControl+Shift+O', () => {
+    return mainWindow.isFocused()
+      ? mainWindow.hide()
+      : mainWindow.show()
+  })
 }
 
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu)
-  regShortcuts()
   mainWindow = createMainWindow()
+  regShortcuts()
 
   const page = mainWindow.webContents
 
