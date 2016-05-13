@@ -19,10 +19,13 @@
 $ cd electronic-weibo
 $ npm install
 
-# Windows
+# run app in development mode
+$ npm run app
+
+# Build for Windows
 $ npm run build:win
 
-# OSX
+# Build for OSX
 $ npm run build:osx
 ```
 
